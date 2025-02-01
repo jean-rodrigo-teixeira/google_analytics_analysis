@@ -10,10 +10,10 @@ SELECT
   totals.pageviews,
   totals.timeOnSite,
   CASE 
-    WHEN trafficSource.medium = 'organic' THEN 'Grupo A'
-    WHEN trafficSource.medium IN ('cpc', 'paid') THEN 'Grupo B'
-    ELSE 'Outros'
-  END AS grupo
+    WHEN trafficSource.medium = 'organic' THEN 'A'
+    WHEN trafficSource.medium IN ('cpc', 'paid') THEN 'B'
+    ELSE 'Others'
+  END AS test_A_B
 FROM
   `bigquery-public-data.google_analytics_sample.ga_sessions_*`
 WHERE
