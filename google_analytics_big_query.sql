@@ -6,14 +6,15 @@ SELECT
   geoNetwork.city,
   trafficSource.source,
   trafficSource.medium,
+  device.deviceCategory,
   totals.transactionRevenue,
   totals.pageviews,
   totals.timeOnSite,
   CASE 
-    WHEN trafficSource.medium = 'organic' THEN 'A'
-    WHEN trafficSource.medium IN ('cpc', 'paid') THEN 'B'
+    WHEN device.deviceCategory = 'mobile' THEN 'A'
+    WHEN device.deviceCategory = 'desktop' THEN 'B'
     ELSE 'Others'
-  END AS test_A_B
+  END AS test_device_type
 FROM
   `bigquery-public-data.google_analytics_sample.ga_sessions_*`
 WHERE
