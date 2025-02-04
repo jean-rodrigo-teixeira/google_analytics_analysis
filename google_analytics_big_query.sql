@@ -1,5 +1,5 @@
 SELECT
-  visitorId,
+  fullvisitorId,
   visitNumber,
   visitStartTime,
   geoNetwork.country,
